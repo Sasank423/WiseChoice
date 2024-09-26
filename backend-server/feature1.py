@@ -52,7 +52,6 @@ class Feature1:
         geniune_reviews = self.detector.filter(reviews)
         geniune_reviews_count = len(geniune_reviews)
         geniune_reviews.columns = ['Reviews']
-        print(' '.join(list(geniune_reviews['Reviews'])))
         sleep(1)
         r = process(' '.join(list(geniune_reviews['Reviews'])))
         sleep(1)
