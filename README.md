@@ -40,15 +40,15 @@ Firstly prerequesities are :
 
 to setup the Project Wisechoice in your system, you only need to follow 3 steps.
 
-        1) Clone the Repository
+1) Clone the Repository
 
-        2) Run the setup.py file to install dependencies. run it manually or paste the following command in your terminal
+2) Run the setup.py file to install dependencies. run it manually or paste the following command in your terminal
 
-                python setup.py
+        python setup.py
 
-        3) Download the joblib file from below link and place it in backend-server directory
+3) Download the joblib file from below link and place it in backend-server directory
 
-                https://drive.google.com/drive/u/1/folders/1z2MCfuIaRLS6kblz7E4uj6P-4IXmdHqv
+        https://drive.google.com/drive/u/1/folders/1z2MCfuIaRLS6kblz7E4uj6P-4IXmdHqv
 
 
 Now the setup is done. To run the Application,
