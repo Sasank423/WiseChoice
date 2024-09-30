@@ -17,7 +17,7 @@ const Sidebar = () => {
             height={60}
             className="rounded-full"
           />
-          <h1 className="text-xl font-medium">Kalyan</h1>
+          <h1 className="text-xl font-medium">Sasank</h1>
         </div>
         <button className="hover:shadow-lg px-4 py-3 w-full transition-all rounded-lg flex gap-2 items-center">
           <FaRegBookmark size={22} />

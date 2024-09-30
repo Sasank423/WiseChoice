@@ -34,14 +34,27 @@ class GeminiTerminalApp:
     
     
 class ChatBot:
+    def __init__(self):
+        self.obj = GeminiTerminalApp()
+        self.link = ''
     def start(self,link):
+        self.link = link
         self.app = GeminiTerminalApp()
         self.app.run(f'clarify my doubts about this product : {link}. only answer questions related to shopping. rep;y with sorry i cant help if any other questions non related about the prodcut are asked')
     
     def query(self,q):
-        return self.app.run(f'{q}. keep answer breif and understandable')
+        if self.link == '':
+            return 'No product link provided. Please provide a product link to start the chat.'
+        
+        ans = self.obj.run(f'{self.link}. {q}.\n Is this question related to the link provided ? give only true or false')
+        if ans == 'True':
+            return self.app.run(f'{q}. keep answer breif and understandable')
+        else:
+            return 'The question provided is not related to the given product. So i am unable to answer this .'
 
 # def chat
-# o = ChatBot()
-# o.start('https://www.amazon.in/CAPPL-Stunning-Spathyphyllum-Included-Fertilizer/dp/B075N8FXJ8/ref=sr_1_4?_encoding=UTF8&content-id=amzn1.sym.93cbdfa7-dde3-4a76-b5ca-e61e354a5ed2&crid=2EHC2GOPHE9F8&dib=eyJ2IjoiMSJ9.jrBZAuxLc5l_imge1jit1xY2HaYXHjIHCx_BSejBKm-4OVEwZBwixMEMPAfjq5NHdslp39uRHJPvIBKEQvHAh7Ygxj3jMkW2N4YX5zjLxE6UpCCzjIZ3geJZrofdjk4c0J-jSllUm08CltVdh6NmTmZfNzrX_8gbZtV56bcoHlf4HyRKrmDROD9hzuXVC17EXIvhUk7pV6kqPSeY9Ldl6D8CanLNZvVDkpZTmGUk9DZqEkQVyW0kn7V4xjDzz5KPUGlEDV1q3NClUcuK8Ix50K7EPOBnw0Df75IVz3ni-P8.UU1XX0zEe3lq5IEmrT0G-Emt4HQcVBEgwNetiUJdAyk&dib_tag=se&keywords=indoor+plants+for+living+room&pd_rd_r=19edc158-6237-4a9e-bdda-248b5f00f998&pd_rd_w=j4nZ5&pd_rd_wg=x6iY2&pf_rd_p=93cbdfa7-dde3-4a76-b5ca-e61e354a5ed2&pf_rd_r=M3QS8K6AF5TEKJ5QXED6&qid=1725021442&refinements=p_n_deal_type%3A26921224031%2Cp_n_pct-off-with-tax%3A2665401031&rnid=2665398031&s=garden&sprefix=indoor+plants+for+%2Caps%2C318&sr=1-4')
-# print(o.query('what is it?'))
+if __name__ == '__main__':
+    o = ChatBot()
+    o.start('https://www.amazon.in/CAPPL-Stunning-Spathyphyllum-Included-Fertilizer/dp/B075N8FXJ8/ref=sr_1_4?_encoding=UTF8&content-id=amzn1.sym.93cbdfa7-dde3-4a76-b5ca-e61e354a5ed2&crid=2EHC2GOPHE9F8&dib=eyJ2IjoiMSJ9.jrBZAuxLc5l_imge1jit1xY2HaYXHjIHCx_BSejBKm-4OVEwZBwixMEMPAfjq5NHdslp39uRHJPvIBKEQvHAh7Ygxj3jMkW2N4YX5zjLxE6UpCCzjIZ3geJZrofdjk4c0J-jSllUm08CltVdh6NmTmZfNzrX_8gbZtV56bcoHlf4HyRKrmDROD9hzuXVC17EXIvhUk7pV6kqPSeY9Ldl6D8CanLNZvVDkpZTmGUk9DZqEkQVyW0kn7V4xjDzz5KPUGlEDV1q3NClUcuK8Ix50K7EPOBnw0Df75IVz3ni-P8.UU1XX0zEe3lq5IEmrT0G-Emt4HQcVBEgwNetiUJdAyk&dib_tag=se&keywords=indoor+plants+for+living+room&pd_rd_r=19edc158-6237-4a9e-bdda-248b5f00f998&pd_rd_w=j4nZ5&pd_rd_wg=x6iY2&pf_rd_p=93cbdfa7-dde3-4a76-b5ca-e61e354a5ed2&pf_rd_r=M3QS8K6AF5TEKJ5QXED6&qid=1725021442&refinements=p_n_deal_type%3A26921224031%2Cp_n_pct-off-with-tax%3A2665401031&rnid=2665398031&s=garden&sprefix=indoor+plants+for+%2Caps%2C318&sr=1-4')
+    while True:
+        print(o.query(input('enter question : ')))
