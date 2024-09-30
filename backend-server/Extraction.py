@@ -18,9 +18,9 @@ class Review_Price_Extract:
     def start(self):
         chrome_options = Options()
 #         Uncommenting below 2 lines can disable the browser pop up
-        #chrome_options.add_argument('--headless')
-        #chrome_options.add_argument('--disable-gpu')
-        #chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
         
         self.driver = webdriver.Chrome(options=chrome_options)
         self.check = WebDriverWait(self.driver,1)
